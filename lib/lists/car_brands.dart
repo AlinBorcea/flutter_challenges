@@ -13,19 +13,21 @@ class _CarBrandsState extends State<CarBrands> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
+          color: Colors.black,
           child: Stack(
             children: <Widget>[
+              /// top bar
               Container(
                 height: 128,
                 width: _size.width,
                 decoration: BoxDecoration(
-                  color: Colors.lightBlue,
+                  color: Colors.red,
                   borderRadius: BorderRadius.only(
                     bottomRight: Radius.circular(28),
                     bottomLeft: Radius.circular(28),
                   ),
                 ),
-                child: _topBar(),
+                child: _topBar(context),
               ),
 
               /// List view
@@ -41,7 +43,7 @@ class _CarBrandsState extends State<CarBrands> {
     );
   }
 
-  Widget _topBar() {
+  Widget _topBar(BuildContext context) {
     return
     Padding(
       padding: EdgeInsets.symmetric(horizontal: 8),
@@ -51,7 +53,7 @@ class _CarBrandsState extends State<CarBrands> {
           IconButton(
             icon: Icon(Icons.arrow_back_ios),
             onPressed: () {
-              debugPrint('Going back iOS style');
+              Navigator.of(context).pop();
             },
           ),
           Text(
@@ -74,6 +76,7 @@ class _CarBrandsState extends State<CarBrands> {
         itemCount: brands.length,
         itemBuilder: (context, i) {
           return Card(
+            color: Color.fromARGB(255, 66, 66, 66), // rgba(66,66,66 ,1)
             elevation: 4.0,
             child: ListTile(
               leading: Image.asset(brands[i].imgPath),
@@ -81,14 +84,14 @@ class _CarBrandsState extends State<CarBrands> {
                 brands[i].name,
                 style: TextStyle(
                   fontSize: 18,
-                  color: Colors.black,
+                  color: Colors.white,
                 ),
               ),
               subtitle: Text(
                 brands[i].motto,
                 style: TextStyle(
                   fontSize: 14,
-                  color: Colors.black87,
+                  color: Colors.white,
                 ),
               ),
             ),
@@ -97,9 +100,10 @@ class _CarBrandsState extends State<CarBrands> {
   }
 
   List<Brand> brands = [
-    new Brand('Ford', 'Built For the Road Ahead', 'assets/ford.png'),
-    new Brand('Ferrari', '', 'assets/ferrari.png'),
-    new Brand('Audi', 'Lead through technology', 'assets/audi.png'),
-    new Brand('Volkswagen', 'Das Auto', 'assets/vk.png'),
+    Brand('Ford', 'Built For the Road Ahead', 'assets/ford.png'),
+    Brand('Ferrari', '', 'assets/ferrari.png'),
+    Brand('Audi', 'Lead through technology', 'assets/audi.png'),
+    Brand('Volkswagen', 'Das Auto', 'assets/vk.png'),
+    Brand('BMW', 'The Ultimate Driving Machine', 'assets/bmw.png')
   ];
 }
