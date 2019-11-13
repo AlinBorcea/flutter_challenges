@@ -47,6 +47,7 @@ flutter:
   - assets/vk.png
   - assets/audi.png
   - assets/bmw.png
+  - assets/profile.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

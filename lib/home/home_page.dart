@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:challenges/lists/car_brands.dart';
+import 'package:challenges/profiles/profile1.dart';
 import 'challenge.dart';
 
 class HomePage extends StatefulWidget {
@@ -73,7 +74,10 @@ class _HomePageState extends State<HomePage> {
         itemBuilder: (context, i) {
           return Card(
             child: ExpansionTile(
-              leading: Icon(Icons.work, color: Colors.green,),
+              leading: Icon(
+                Icons.work,
+                color: Colors.green,
+              ),
               title: Text(challenges[i].name),
               children: <Widget>[
                 Column(
@@ -96,7 +100,8 @@ class _HomePageState extends State<HomePage> {
         ),
         title: Text(content),
         onTap: () {
-          Navigator.of(context).push(new MaterialPageRoute(builder: (context) => _lesson(content)));
+          Navigator.of(context).push(
+              new MaterialPageRoute(builder: (context) => _lesson(content)));
         },
       ));
     }
@@ -107,16 +112,19 @@ class _HomePageState extends State<HomePage> {
     switch (content) {
       case 'List 1':
         return CarBrands();
+      case 'Profile 1':
+        return Profile1();
       default:
         return CarBrands();
     }
   }
 
   List<Challenge> challenges = [
-    new Challenge(
+    Challenge(
         'Sign in',
         'It is important to have a nice sign in screen in you app',
         ['Sign in 1', 'Sign in 2']),
-    new Challenge('Lists', 'Nice list views', ['List 1', 'List 2']),
+    Challenge('Lists', 'Nice list views', ['List 1', 'List 2']),
+    Challenge('Profiles', 'Beautiful', ['Profile 1']),
   ];
 }
