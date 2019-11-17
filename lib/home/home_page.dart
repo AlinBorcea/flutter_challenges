@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:challenges/lists/car_brands.dart';
 import 'package:challenges/profiles/profile1.dart';
+import 'package:challenges/profiles/profile2.dart';
 import 'challenge.dart';
 
 class HomePage extends StatefulWidget {
@@ -114,6 +115,8 @@ class _HomePageState extends State<HomePage> {
         return CarBrands();
       case 'Profile 1':
         return Profile1();
+      case 'Profile 2':
+        return Profile2();
       default:
         return CarBrands();
     }
@@ -125,6 +128,6 @@ class _HomePageState extends State<HomePage> {
         'It is important to have a nice sign in screen in you app',
         ['Sign in 1', 'Sign in 2']),
     Challenge('Lists', 'Nice list views', ['List 1', 'List 2']),
-    Challenge('Profiles', 'Beautiful', ['Profile 1']),
+    Challenge('Profiles', 'Beautiful', ['Profile 1', 'Profile 2']),
   ];
 }
